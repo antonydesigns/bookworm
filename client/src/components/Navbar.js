@@ -7,7 +7,7 @@ function Navbar({ props }) {
     <div>
       <nav>
         <Link to={paths.home}>Home</Link>
-        <Link to={paths.new}>New</Link>
+        <Link to={paths.newBook}>New</Link>
       </nav>
     </div>
   );

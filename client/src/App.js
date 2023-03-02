@@ -9,8 +9,8 @@ function App() {
   const props = {
     paths: {
       home: "/",
-      new: "/new",
-      update: "/update",
+      newBook: "/new",
+      updateBook: "/update",
     },
   };
 
@@ -22,8 +22,8 @@ function App() {
         <Navbar props={props} />
         <Routes>
           <Route path={paths.home} element={<Home />} />
-          <Route path={paths.new} element={<NewBook />} />
-          <Route path={paths.update} element={<UpdateBook />} />
+          <Route path={paths.newBook} element={<NewBook />} />
+          <Route path={paths.updateBook} element={<UpdateBook />} />
         </Routes>
       </BrowserRouter>
       <p>Hi mom!</p>
