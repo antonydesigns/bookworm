@@ -6,6 +6,7 @@ function Navbar({ props }) {
   return (
     <div>
       <nav>
+        <Link to={paths.home}>Home</Link>
         <Link to={paths.new}>New</Link>
       </nav>
     </div>

@@ -14,14 +14,16 @@ function App() {
     },
   };
 
+  const paths = props.paths;
+
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar props={props} />
         <Routes>
-          <Route path={props.paths.home} element={<Home />} />
-          <Route path={props.paths.new} element={<NewBook />} />
-          <Route path={props.paths.update} element={<UpdateBook />} />
+          <Route path={paths.home} element={<Home />} />
+          <Route path={paths.new} element={<NewBook />} />
+          <Route path={paths.update} element={<UpdateBook />} />
         </Routes>
       </BrowserRouter>
       <p>Hi mom!</p>
