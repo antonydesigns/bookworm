@@ -5,9 +5,19 @@ function Navbar({ props }) {
 
   return (
     <div>
-      <nav>
-        <Link to={paths.home}>Home</Link>
-        <Link to={paths.newBook}>New</Link>
+      <nav className="columns-2 text-center mt-5">
+        <Link
+          to={paths.home}
+          className="block border border-black rounded-md mx-16"
+        >
+          Home
+        </Link>
+        <Link
+          to={paths.newBook}
+          className="block border border-black rounded-md mx-16"
+        >
+          New
+        </Link>
       </nav>
     </div>
   );

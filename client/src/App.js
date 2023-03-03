@@ -26,8 +26,6 @@ function App() {
           <Route path={paths.updateBook} element={<UpdateBook />} />
         </Routes>
       </BrowserRouter>
-      <p>Hi mom!</p>
-      <h1>Hi Dad</h1>
     </div>
   );
 }
