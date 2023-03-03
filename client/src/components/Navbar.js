@@ -5,16 +5,16 @@ function Navbar({ props }) {
 
   return (
     <div>
-      <nav className="columns-2 text-center mt-5">
+      <nav className="flex justify-center text-center mt-5">
         <Link
           to={paths.home}
-          className="block border border-black rounded-md mx-16"
+          className="block border border-black rounded-md w-60  bg-yellow-200 hover:bg-yellow-100 mx-5"
         >
           Home
         </Link>
         <Link
           to={paths.newBook}
-          className="block border border-black rounded-md mx-16"
+          className="block border border-black rounded-md w-60  bg-green-300 hover:bg-green-200 mx-5"
         >
           New
         </Link>
