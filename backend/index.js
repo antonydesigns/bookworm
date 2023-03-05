@@ -14,7 +14,11 @@ const db = mysql.createConnection({
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 app.get("/books", (req, res) => {
   const select = "SELECT * FROM books";
