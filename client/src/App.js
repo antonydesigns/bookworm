@@ -17,7 +17,7 @@ function App() {
   const paths = props.paths;
 
   return (
-    <div className="App">
+    <div className="App mx-10">
       <BrowserRouter>
         <Navbar props={props} />
         <Routes>
