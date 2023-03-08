@@ -41,6 +41,16 @@ app.post("/books", (req, res) => {
   });
 });
 
+app.delete("/books/:id", (req, res) => {
+  const bookID = req.params.id;
+  const del = "DELETE FROM books WHERE id = ?";
+
+  db.query(del, [bookID], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(`Book ${bookID} deleted successfully.`);
+  });
+});
+
 app.listen(process.env.LOCAL_PORT, () => {
   console.log("Connected to port " + process.env.LOCAL_PORT);
 });

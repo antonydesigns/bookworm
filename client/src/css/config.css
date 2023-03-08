@@ -5,6 +5,7 @@
 @layer utilities {
   :root {
     --min-col-width: 300px;
+    --max-col-width: 600px;
     --col-gap: 20px;
   }
 
@@ -143,8 +144,12 @@
 
   .cols-auto {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--min-col-width), 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--min-col-width), var(--min-col-width))
+    );
     gap: var(--col-gap);
+    place-content: center;
   }
 
   .col-mid {

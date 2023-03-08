@@ -19,18 +19,43 @@ function Home() {
     fetchAllBooks();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8800/books/` + id);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="books mt-5">
         <div className="cards cols-auto">
           {books.map((book) => (
-            <Link
+            <div
               key={book.id}
-              className="card border border-black rounded-lg text-center bg-blue-200 hover:bg-blue-100"
+              className="card overflow-hidden border border-black rounded-lg text-center"
             >
-              <p className="title">{book.title}</p>
-              <p className="rating">{book.rating}</p>
-            </Link>
+              <Link>
+                <div className=" bg-blue-200 hover:bg-blue-100">
+                  <p className="title">{book.title}</p>
+                  <p className="rating">{book.rating}</p>
+                  <div className="delete-btn">tes</div>
+                </div>
+              </Link>
+              <div className="options bg-blue-200">
+                <div
+                  className="delete-btn bg-red-500 cursor-pointer hover:bg-red-300"
+                  onClick={() => handleDelete(book.id)}
+                >
+                  Delete
+                </div>
+                <div className="update-btn bg-green-300 cursor-pointer hover:bg-green-200">
+                  <Link to={`/update/${book.id}`}>Update</Link>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -10,7 +10,7 @@ function App() {
     paths: {
       home: "/",
       newBook: "/new",
-      updateBook: "/update",
+      updateBook: "/update/:id",
     },
   };
 
