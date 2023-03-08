@@ -58,6 +58,12 @@ app.put("/books/:id", (req, res) => {
   const bookID = req.params.id;
   const update =
     "UPDATE books SET `title` = ?, `rating` = ?, `cover` = ? WHERE id = ?";
+  const values = [req.body.title, req.body.rating, req.body.cover];
+
+  db.query(update, [...values, bookID], (err, data) => {
+    if (err) return err;
+    return res.json("Book updated successfully.");
+  });
 });
 
 app.delete("/books/:id", (req, res) => {

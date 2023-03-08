@@ -34,7 +34,7 @@ function UpdateBook() {
     e.preventDefault();
 
     try {
-      await axios.post(`http://localhost:8800/books`, book);
+      await axios.put(`http://localhost:8800/books/${params.id}`, book);
       navigate("/");
     } catch (error) {
       console.log(error);

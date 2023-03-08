@@ -40,19 +40,18 @@ function Home() {
               <Link>
                 <div className=" bg-blue-200 hover:bg-blue-100">
                   <p className="title">{book.title}</p>
-                  <p className="rating">{book.rating}</p>
-                  <div className="delete-btn">tes</div>
+                  <p className="rating">{book.rating} / 10</p>
                 </div>
               </Link>
               <div className="options bg-blue-200">
+                <div className="update-btn bg-green-300 cursor-pointer hover:bg-green-200">
+                  <Link to={`/update/${book.id}`}>Update</Link>
+                </div>
                 <div
                   className="delete-btn bg-red-500 cursor-pointer hover:bg-red-300"
                   onClick={() => handleDelete(book.id)}
                 >
                   Delete
-                </div>
-                <div className="update-btn bg-green-300 cursor-pointer hover:bg-green-200">
-                  <Link to={`/update/${book.id}`}>Update</Link>
                 </div>
               </div>
             </div>
