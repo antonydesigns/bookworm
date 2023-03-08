@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./css/tailwind.css";
-import "./css/sketch.css";
 import Home from "./pages/Home";
 import NewBook from "./pages/NewBook";
 import UpdateBook from "./pages/UpdateBook";
