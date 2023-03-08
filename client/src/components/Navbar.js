@@ -5,7 +5,7 @@ function Navbar({ props }) {
 
   return (
     <div>
-      <nav className="flex justify-center text-center mt-5">
+      <nav className="mid text-center mt-5">
         <Link
           to={paths.home}
           className="block border border-black rounded-md w-60  bg-yellow-200 hover:bg-yellow-100 mx-5"
