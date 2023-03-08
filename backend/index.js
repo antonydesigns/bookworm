@@ -31,7 +31,7 @@ app.get("/books", (req, res) => {
   });
 });
 
-app.post("/post", (req, res) => {
+app.post("/books", (req, res) => {
   const insert = "INSERT INTO books (`title`, `rating`,`cover`) VALUES (?)";
   const values = [req.body.title, req.body.rating, req.body.cover];
 

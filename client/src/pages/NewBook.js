@@ -1,6 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function NewBook() {
+  const navigate = useNavigate();
+
   const [newBook, setNewBook] = useState({
     title: "",
     rating: "",
@@ -9,7 +13,22 @@ function NewBook() {
 
   const handleChange = (e) => {
     setNewBook((inputs) => ({ ...inputs, [e.target.name]: e.target.value }));
-    console.log(newBook);
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(`http://localhost:8800/books`, newBook);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setNewBook({
+        title: "",
+        rating: " ",
+        cover: "",
+      });
+    }
   };
 
   return (
@@ -24,7 +43,7 @@ function NewBook() {
         />
         <input
           className="border border-black mt-5 rounded-md px-3"
-          type="text"
+          type="number"
           placeholder="rating"
           onChange={handleChange}
           name="rating"
@@ -37,7 +56,10 @@ function NewBook() {
           name="cover"
         />
 
-        <button className="border border-black mt-5 rounded-md px-3 bg-green-400 hover:bg-green-300">
+        <button
+          onClick={handleClick}
+          className="border border-black mt-5 rounded-md px-3 bg-green-400 hover:bg-green-300"
+        >
           Submit new book
         </button>
       </form>
