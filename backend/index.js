@@ -33,7 +33,7 @@ app.get("/books", (req, res) => {
 
 app.get("/books/:id", (req, res) => {
   const bookID = req.params.id;
-  const getSingle = "SELECT * FROM books WHERE `id` = ?";
+  const getSingle = "SELECT * FROM books WHERE id = ?";
 
   db.query(getSingle, [bookID], (err, data) => {
     if (err) {
@@ -52,6 +52,12 @@ app.post("/books", (req, res) => {
     if (err) return err;
     return res.json("Book added to collection");
   });
+});
+
+app.put("/books/:id", (req, res) => {
+  const bookID = req.params.id;
+  const update =
+    "UPDATE books SET `title` = ?, `rating` = ?, `cover` = ? WHERE id = ?";
 });
 
 app.delete("/books/:id", (req, res) => {

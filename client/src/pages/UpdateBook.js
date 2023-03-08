@@ -5,26 +5,26 @@ import { useState, useEffect } from "react";
 
 function UpdateBook() {
   const navigate = useNavigate();
-  const id = useParams();
+  const params = useParams();
   const [book, setBook] = useState({
     title: "",
     rating: "",
     cover: "",
   });
 
-  /* useEffect(() => {
+  useEffect(() => {
     const fetchSingleBook = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/books/` + id);
-        console.log(res.data);
+        const res = await axios.get(`http://localhost:8800/books/${params.id}`);
+        setBook(...res.data);
       } catch (error) {
         console.log(error);
-        setBook([]);
+        setBook(..."");
       }
     };
 
     fetchSingleBook();
-  }, []); */
+  }, []);
 
   const handleChange = (e) => {
     setBook((inputs) => ({ ...inputs, [e.target.name]: e.target.value }));
@@ -50,24 +50,24 @@ function UpdateBook() {
     <div>
       <form className="mid down mt-5">
         <input
-          onClick={handleChange}
+          onChange={handleChange}
           className="border border-black mt-5 rounded-md px-3"
           type="text"
-          placeholder="title"
+          value={book.title}
           name="title"
         />
         <input
-          onClick={handleChange}
+          onChange={handleChange}
           className="border border-black mt-5 rounded-md px-3"
           type="number"
-          placeholder="rating"
+          value={book.rating}
           name="rating"
         />
         <input
-          onClick={handleChange}
+          onChange={handleChange}
           className="border border-black mt-5 rounded-md px-3"
           type="text"
-          placeholder="cover"
+          value={book.cover}
           name="cover"
         />
 
