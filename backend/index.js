@@ -31,6 +31,19 @@ app.get("/books", (req, res) => {
   });
 });
 
+app.get("/books/:id", (req, res) => {
+  const bookID = req.params.id;
+  const getSingle = "SELECT * FROM books WHERE `id` = ?";
+
+  db.query(getSingle, [bookID], (err, data) => {
+    if (err) {
+      return err;
+    } else {
+      res.json(data);
+    }
+  });
+});
+
 app.post("/books", (req, res) => {
   const insert = "INSERT INTO books (`title`, `rating`,`cover`) VALUES (?)";
   const values = [req.body.title, req.body.rating, req.body.cover];
