@@ -8,17 +8,13 @@ const app = express();
 
 const db = mysql.createConnection({
   host: "localhost",
-  user: "root",
+  user: "	antonyd2_wp279",
   password: "",
-  database: "bookworm",
+  database: "antonyd2_wp279",
 });
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:3000", // allowing only my react app
-  })
-);
+app.use(cors());
 
 app.get("/books", (req, res) => {
   const select = "SELECT * FROM books";
