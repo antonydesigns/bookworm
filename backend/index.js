@@ -8,9 +8,9 @@ const app = express();
 
 const db = mysql.createConnection({
   host: "localhost",
-  user: "	antonyd2_wp279",
-  password: "",
-  database: "antonyd2_wp279",
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.USER,
 });
 
 app.use(express.json());
