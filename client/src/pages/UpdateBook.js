@@ -15,7 +15,9 @@ function UpdateBook() {
   useEffect(() => {
     const fetchSingleBook = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/books/${params.id}`);
+        const res = await axios.get(
+          `http://antony-designs.com/api/books/${params.id}`
+        );
         setBook(...res.data);
       } catch (error) {
         console.log(error);
@@ -34,7 +36,7 @@ function UpdateBook() {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8800/books/${params.id}`, book);
+      await axios.put(`http://antony-designs.com/api/books/${params.id}`, book);
       navigate("/");
     } catch (error) {
       console.log(error);

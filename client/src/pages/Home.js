@@ -8,7 +8,7 @@ function Home() {
   useEffect(() => {
     const fetchAllBooks = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/books`);
+        const res = await axios.get(`http://antony-designs.com/api/books`);
         setBooks(res.data);
       } catch (error) {
         console.log(error);
@@ -21,7 +21,7 @@ function Home() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8800/books/` + id);
+      await axios.delete(`http://antony-designs.com/api/books/` + id);
       window.location.reload();
     } catch (error) {
       console.log(error);

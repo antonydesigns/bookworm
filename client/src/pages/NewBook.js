@@ -19,7 +19,7 @@ function NewBook() {
     e.preventDefault();
 
     try {
-      await axios.post(`http://localhost:8800/books`, newBook);
+      await axios.post(`http://antony-designs.com/api/books`, newBook);
       navigate("/");
     } catch (error) {
       console.log(error);
